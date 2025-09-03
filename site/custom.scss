@@ -1,0 +1,21 @@
+/*-- scss:defaults --*/
+$navbar-bg: #EEF3F6;
+$navbar-fg: #383a3c;
+$navbar-hl: #040548;
+
+// fonts
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+3:300,300i,400,400i);
+$font-family-sans-serif: "Source Sans 3", sans-serif !default;
+
+/*-- scss:rules --*/
+.card-header {
+  background-color: #EEF3F6;
+}
+
+.nav-item > a:hover {
+  color: #86C7ED;
+}
+
+.nav-link{
+  color: #383a3c;
+}

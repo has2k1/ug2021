@@ -1,0 +1,85 @@
+---
+title: "Overview"
+format: 
+   dashboard:
+      orientation: rows
+      theme: [united, custom.scss]
+      css: styles.css
+---
+
+```{python}
+#| label: imports
+
+from ug2021.data import results
+from ug2021.values import national_statistics
+from ug2021.plots import national_plots 
+from ug2021.tables import district_tables
+from ug2021 import utils
+
+```
+
+# Summary
+
+## Row
+
+```{python}
+#| content: valuebox
+#| title: "Registered Voters"
+dict(
+  icon="people",
+  color="light",
+  value=f"{national_statistics.registered_voters:,}"
+)
+```
+
+```{python}
+#| content: valuebox
+#| title: "Valid Votes"
+dict(
+  icon="person-fill-check",
+  color="light",
+  value=f"{national_statistics.valid_voters:,}"
+)
+```
+
+```{python}
+#| content: valuebox
+#| title: "Total Votes"
+dict(
+  icon="123",
+  color="light",
+  value=f"{national_statistics.total_votes:,}"
+)
+```
+
+```{python}
+#| content: valuebox
+#| title: "Turnout"
+value = national_statistics.turnout
+dict(
+  icon="calculator",
+  color=utils.red_green_pal_pct(value)[0],
+  value=f"{value:.1f}%"
+)
+```
+
+## Row
+
+### Column {width=65%}
+
+#### Row - Votes for Each Candidate {height=60%}
+
+```{python}
+#| label: plot-votes-for-each-candidate
+#| title: Total Votes for Each Candidate
+national_plots.votes_for_each_candidate()
+```
+
+# District
+
+## Summary
+```{python}
+#| label: table-district-summary
+#| title: District Summary
+district_tables.summary()
+```

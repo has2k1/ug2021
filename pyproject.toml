@@ -1,0 +1,19 @@
+[project]
+name = "ug2021"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "altair>=5.5.0",
+    "geopandas>=1.1.1",
+    "great-tables>=0.18.0",
+    "gt-extras>=0.0.8",
+    "itables>=2.4.5",
+    "jupyter>=1.1.1",
+    "pandas>=2.3.2",
+    "plotnine[extra]>=0.15.0",
+    "polars>=1.32.3",
+    "pyright>=1.1.404",
+    "ruff>=0.12.11",
+]
