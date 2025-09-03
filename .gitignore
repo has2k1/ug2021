@@ -12,3 +12,6 @@ wheels/
 # jupyter
 **/.ipynb_checkpoints/
 **/Untitled*.ipynb
+
+# Personal Playground
+.local/
