@@ -1,8 +1,7 @@
 import plotnine as p9
 from mizani.formatters import comma_format
-from ..data.results import national_long
 
-
+from ug2021.data import results
 
 candidate_colors = {
     "Museveni": "#F3C02A",
@@ -20,6 +19,7 @@ candidate_colors = {
 
 p9.theme_set(p9.theme_light())
 
+
 def votes_for_each_candidate():
     def ha_align_left(s, threshold):
         return ["left" if x <= threshold else "right" for x in s]
@@ -28,7 +28,7 @@ def votes_for_each_candidate():
         return [amount if x <= threshold else -amount for x in s]
 
     p = (
-        national_long
+        results.national_long
         >> p9.ggplot(p9.aes("reorder(candidate, votes)", "votes"))
         + p9.geom_col(p9.aes(fill="candidate"), show_legend=False)
         + p9.geom_text(
