@@ -17,3 +17,12 @@ dependencies = [
     "pyright>=1.1.404",
     "ruff>=0.12.11",
 ]
+
+[build-system]
+requires = [
+    "setuptools>=59",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"ug2021" = ["_resources/*"]
