@@ -1,0 +1,4 @@
+/* css styles */
+.quarto-dashboard .bslib-value-box .value-box-value {
+    font-size: clamp(.1em, 15cqw, 2em);
+}
