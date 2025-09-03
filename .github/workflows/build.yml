@@ -1,0 +1,37 @@
+name: Build Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install uv and set python version
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: pre-release
+
+      - name: Install Project
+        run: |
+          uv sync
+          uv pip install .
+
+      - name: Build docs
+        run: |
+          cd site
+          uv run quarto render
+
+      - name: Deploy to github pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: site/_site
